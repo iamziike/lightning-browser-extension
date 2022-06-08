@@ -209,7 +209,7 @@ export interface Allowance {
 export interface SettingsStorage {
   websiteEnhancements: boolean;
   legacyLnurlAuth: boolean;
-  legacyLnurlAuthKey: boolean;
+  isUsingLegacyLnurlAuthKey: boolean;
   userName: string;
   userEmail: string;
   locale: string;

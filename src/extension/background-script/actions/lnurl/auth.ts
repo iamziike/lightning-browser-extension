@@ -142,7 +142,7 @@ async function auth(lnurlDetails: LNURLDetails) {
   }
   let linkingKeyPriv;
   const { settings } = state.getState();
-  if (settings.legacyLnurlAuthKey) {
+  if (settings.isUsingLegacyLnurlAuthKey) {
     linkingKeyPriv = hmacSHA256(lnurlDetails.url.host, hashingKey).toString(
       Hex
     );
