@@ -1,13 +1,11 @@
 import browser from "webextension-polyfill";
-
 import utils from "~/common/lib/utils";
 
+import connectors from "./connectors";
+import db from "./db";
+import * as events from "./events";
 import { router } from "./router";
 import state from "./state";
-import db from "./db";
-import connectors from "./connectors";
-
-import * as events from "./events";
 
 let isFirstInstalled = false;
 
@@ -23,7 +21,7 @@ const extractLightningData = (tabId, changeInfo, tab) => {
     // before the receiving side in the content-script was connected/listening
     setTimeout(() => {
       browser.tabs.sendMessage(tabId, {
-        type: "extractLightningData",
+        action: "extractLightningData",
       });
     }, 150);
   }
@@ -85,7 +83,10 @@ const routeCalls = (message, sender) => {
   }
   const debug = state.getState().settings.debug;
 
-  const action = message.type; //|| message.action; // TODO: what is a good message format to route to an action?
+  if (message.type) {
+    console.debug("Invalid message, using type", message);
+  }
+  const action = message.action || message.type;
   console.log(`Routing call: ${action}`);
   // Potentially check for internal vs. public calls
   const call = router(action)(message, sender);
