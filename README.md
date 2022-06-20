@@ -2,7 +2,7 @@
 
 ### A browser extension to bring the Bitcoin Lightning Network to the browser
 
-The extension provides deep Lightning Network integration for websites (for payments and authentication flows).
+The extension provides deep Lightning Network integration for websites (for payments and authentication flows)..
 
 The goal is to write a minimal web extension to allow browsers to interact with the Lightning Network programmatically. It focuses on the web-payments process and does not try to be a full node UI with advanced channel-management or similar features.
 
