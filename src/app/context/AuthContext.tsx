@@ -36,7 +36,7 @@ const AuthContext = createContext({} as AuthContextType);
 
 // @TODO: https://github.com/getAlby/lightning-browser-extension/issues/1040
 // rename to "accountProvider"
-export function AuthProvider({ children }: { children: React.ReactNode }) {
+export function AccountProvider({ children }: { children: React.ReactNode }) {
   const [account, setAccount] = useState<AuthContextType["account"]>(null);
   const [loading, setLoading] = useState(true);
   const [balancesDecorated, setBalancesDecorated] = useState({
